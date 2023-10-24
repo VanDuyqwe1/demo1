@@ -335,6 +335,7 @@ html {
  */
 body {
   margin: 0;
+  background: url("../../../wp-admin/images/bg_pattern.png") repeat;
 }
 
 /**
@@ -827,6 +828,7 @@ template {
 
 .site-footer > *,
 .widget-area > * {
+  color: var(--global--color-white);
   margin-top: calc(0.666 * var(--global--spacing-vertical));
   margin-bottom: calc(0.666 * var(--global--spacing-vertical));
 }
@@ -3318,9 +3320,14 @@ table.wp-calendar-table caption {
     justify-content: center;
   }
 }
+#colophon {
+  background-color: #007b5e;
+}
+
 .site-footer {
   padding-top: 0;
-  padding-bottom: calc(1.7 * var(--global--spacing-vertical));
+  padding-bottom: 1rem;
+  max-width: none;
 }
 .no-widgets .site-footer {
   margin-top: calc(6 * var(--global--spacing-vertical));
@@ -3333,11 +3340,10 @@ table.wp-calendar-table caption {
 
 .site-footer > .site-info {
   padding-top: var(--global--spacing-vertical);
-  color: var(--footer--color-text);
+  color: var(--global--color-white);
   font-family: var(--footer--font-family);
   font-size: var(--footer--font-size);
   line-height: var(--global--line-height-body);
-  border-top: 3px solid var(--global--color-border);
 }
 .site-footer > .site-info .site-name {
   text-transform: var(--branding--title--text-transform);
@@ -3365,10 +3371,10 @@ table.wp-calendar-table caption {
   }
 }
 .site-footer > .site-info a {
-  color: var(--footer--color-link);
+  color: var(--global--color-white);
 }
 .site-footer > .site-info a:link, .site-footer > .site-info a:visited, .site-footer > .site-info a:active {
-  color: var(--footer--color-link);
+  color: var(--global--color-white);
 }
 .site-footer > .site-info a:hover {
   color: var(--footer--color-link-hover);
@@ -3384,9 +3390,9 @@ table.wp-calendar-table caption {
 }
 
 .singular .entry-header {
-  border-bottom: 3px solid var(--global--color-border);
-  padding-bottom: calc(2 * var(--global--spacing-vertical));
-  margin-bottom: calc(3 * var(--global--spacing-vertical));
+  /*border-bottom: 3px solid var(--global--color-border);*/
+  /*padding-bottom: calc(2 * var(--global--spacing-vertical));*/
+  /*margin-bottom: calc(3 * var(--global--spacing-vertical));*/
 }
 
 .home .entry-header {
@@ -3441,7 +3447,11 @@ table.wp-calendar-table caption {
 }
 
 .singular .entry-title {
-  font-size: var(--global--font-size-page-title);
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
 
 h1.entry-title {
@@ -4579,19 +4589,21 @@ h1.page-title {
 .comments-pagination .nav-links > * {
   font-size: var(--global--font-size-md);
 }
+.footer-widgets {
+  background-color: #007b5e;
+}
 
 .widget-area {
-  margin-top: calc(6 * var(--global--spacing-vertical));
-  padding-bottom: calc(var(--global--spacing-vertical) / 3);
+  margin-top: calc(2 * var(--global--spacing-vertical));
   color: var(--footer--color-text);
   font-size: var(--footer--font-size);
   font-family: var(--footer--font-family);
+  background-color: #007b5e;
 }
 @media only screen and (min-width: 652px) {
   .widget-area {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: calc(2 * var(--global--spacing-horizontal));
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -4616,6 +4628,22 @@ h1.page-title {
   display: table;
   clear: both;
 }
+
+.widget_block {
+  padding: 0 1rem;
+}
+
+.widget_block a {
+  color: white!important;
+  text-decoration: none!important;
+}
+
+.widget_block a:before {
+  content:"»";
+  margin:5px;
+  font-size: 1.5rem;
+}
+
 
 .widget h1,
 .widget h2,
@@ -5066,6 +5094,70 @@ footer {
 }
 .is-IE .post-thumbnail .wp-post-image {
   min-width: auto;
+}
+
+/* Detail css */
+.title {
+  max-width: var(--responsive--aligndefault-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headlinesdate {
+  font-size: 16px;
+  background: #f5ce31;
+  border-radius: 50%;
+  padding: 10px 16px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
+}
+
+.headlinesdate .headlinesdm, .headlinesdate {
+  float: left;
+  font-family: 'Prata', serif;
+}
+
+.headlinesday {
+  border-bottom: 1px solid #000;
+}
+
+.headlinesdate .headlinesday, .headlines .headlinesmonth {
+  line-height: 1.7em;
+}
+
+.headlinesdate .headlinesyear {
+  line-height: 3.5em;
+  float: left;
+  margin-left: 3px;
+}
+
+.overviewline {
+  border-bottom: 1px solid #cecece;
+  margin: 25px 0 15px;
+  position: relative;
+}
+
+.overviewline:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50px;
+  border-width: 12px 12px 0;
+  border-style: solid;
+  border-color: #cecece transparent;
+  display: block;
+  width: 0;
+}
+
+.overviewline:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 51px;
+  border-width: 11px 11px 0;
+  border-style: solid;
+  border-color: #f5f5f5 transparent;
+  display: block;
+  width: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
