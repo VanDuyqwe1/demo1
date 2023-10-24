@@ -1,0 +1,16 @@
+// Do we need to serve a font? Add the @font-face styles here.
+$grey: #e7e7e7;
+$gray-light: #f8f8f8;
+$while: #fff;
+
+.hover-menu{
+    &:hover{
+		background: $grey;
+	}
+}
+
+
+.bg-while{
+    background: $while;
+}
+
